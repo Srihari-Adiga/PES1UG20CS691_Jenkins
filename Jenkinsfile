@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
         stage('Build') {
             steps {
@@ -15,7 +15,10 @@ pipeline {
     }
      post {
             failure {
-               echo 'pipeline failed'
+                node('MAVEN_OPTS')
+                {
+                   echo 'pipeline failed'
+                }
             }
         }
 }
