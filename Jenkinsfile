@@ -14,11 +14,12 @@ pipeline {
         }
     }
      post {
-            always {
-                node('MAVEN_OPTS')
-                {
-                   echo 'pipeline failed'
+            success {
+                
+                   echo 'pipeline completed'
                 }
-            }
+         failure{
+             echo 'Pipeline failed'
+         }
         }
 }
