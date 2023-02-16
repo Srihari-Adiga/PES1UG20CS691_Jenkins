@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'g++ newfile.cpp -o outputfile'
+                sh "g++ newfile.cpp -o outputfile"
                 build job: "PES1UG20CS691-1"
             }
         }
         stage('Test') {
             steps {
-                sh './outputfile'
+                sh "./outputfile"
           
             }
         }
         post {
             failure {
-                echo 'pipeline failed'
+                echo "pipeline failed"
             }
         }
     }
