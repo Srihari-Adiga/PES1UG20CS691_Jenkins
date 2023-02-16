@@ -10,13 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh "./outputfile"
-          
-            }
-        }
-        post {
-            failure {
-                echo "pipeline failed"
-            }
+          }
         }
     }
 }
