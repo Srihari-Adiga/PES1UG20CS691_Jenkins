@@ -1,5 +1,5 @@
 pipeline {
-    agent any 
+    agent none
     stages {
         stage('Build') {
             steps {
@@ -9,13 +9,16 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh "./outputfile;
+                sh "./outputfile"
           }
         }
     }
      post {
             failure {
-                echo "pipeline failed"
+                node ('master')
+                {
+                    echo "pipeline failed"
+                }
             }
         }
 }
