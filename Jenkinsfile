@@ -1,21 +1,17 @@
 pipeline {
-    agent any
+    agent none
     stages {
         stage('Build') {
+            agent any
             steps {
-                catchError{
                     sh "g++ newfile.cpp -o outputfile"
                     build job: "PES1UG20CS691-1"
-                }
-                
-            }
+                 }
         }
         stage('Test') {
+            agent any
             steps {
-                catchError
-                {
                    sh "./outputfile"
-                }
           }
         }
     }
