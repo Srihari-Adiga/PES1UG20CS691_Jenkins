@@ -15,7 +15,7 @@ pipeline {
     }
      post {
             failure {
-                node ('master')
+                node
                 {
                     echo "pipeline failed"
                 }
